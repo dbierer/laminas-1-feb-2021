@@ -2,8 +2,26 @@
 
 ## Lab Notes
 * Lab: New Project
+  * Starting directory is this:
+```
+/home/vagrant/Zend/workspaces/DefaultWorkspace/
+```
+  * Download Composer 2 and place it in that directory
+  * Skip step #4
   * Instructions for Laminas Skeleton: 
   * https://docs.laminas.dev/tutorials/getting-started/skeleton-application/
+  * Make sure the path to the new project is as follows:
+```
+/home/vagrant/Zend/workspaces/DefaultWorkspace/onlinemarket.work
+```
+  * Move `composer.phar` into the `onlinemarket.work` folder just created
+ 
+## TODO
+* Find example of custom autoloader using `spl_autoload_register`
+
+## Class Notes
+* Documentation + overview
+  * https://getlaminas.org
 
 ## VM Notes
 
