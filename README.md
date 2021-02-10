@@ -1,6 +1,12 @@
 # ZF / Laminas Fundamentals -- Feb 2021
 
 ## Lab Notes
+* For Fri 12 Feb 2021
+  * Lab: New Module
+    * Composer auto-load refresh:
+```
+php composer.phar dump-autoload
+```
 * Lab: New Project
   * Starting directory is this:
 ```
@@ -15,7 +21,15 @@
 /home/vagrant/Zend/workspaces/DefaultWorkspace/onlinemarket.work
 ```
   * Move `composer.phar` into the `onlinemarket.work` folder just created
- 
+  * Correct syntax for installing the skeleton (from a terminal window):
+```
+cd /home/vagrant/Zend/workspaces/DefaultWorkspace/
+wget https://getcomposer.org/composer.phar
+php composer.phar create-project -s dev laminas/laminas-mvc-skeleton onlinemarket.work
+mv composer.phar onlinemarket.work
+```
+  * To test the installation, from the browser: `http://onlinemarket.work/`
+
 ## TODO
 * Find example of custom autoloader using `spl_autoload_register`
 
