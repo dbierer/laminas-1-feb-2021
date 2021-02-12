@@ -1,6 +1,12 @@
 # ZF / Laminas Fundamentals -- Feb 2021
 
 ## Lab Notes
+* For Mon 15 Feb 2021
+  * Lab: Using a Built-in Controller Plugin
+  * Lab: Using a Custom Controller Plugin
+  * Lab: New Controllers and Factories
+    * **IMPORTANT**: use `Laminas` in place of `Zend`!
+
 * For Fri 12 Feb 2021
   * Lab: New Module
     * Composer auto-load refresh:
@@ -36,6 +42,25 @@ mv composer.phar onlinemarket.work
 ## Class Notes
 * Documentation + overview
   * https://getlaminas.org
+* Using tools to generate components
+  * PHPCL Laminas-Tools
+```
+php composer.phar require phpcl/laminas-tools
+vendor/bin/phpcl-laminas-tools module|controller `pwd` MODULE_NAME|CLASS
+```
+  * To generate a factory:
+```
+vendor/bin/generate-factory-for-class Namespace\\Class\\Name
+// or
+vendor/bin/phpcl-laminas-tools factory `pwd` Namespace\\Class\\Name
+```
+* To create a controller plugin (using the PHPCL Laminas Tools)
+```
+/bin/phpcl-laminas-tools controller-plugin `pwd` Market\\Controller\\Plugin\\TimePlugin
+```
+  * And then: fill in the logic for the `__invoke()` method in the `TimePlugin` class
+  * Review `Market/config/module.config.php` and make sure there's an entry under `controller_plugins`
+  * When you use the plugin, reference it using the `alias` name
 
 ## VM Notes
 
