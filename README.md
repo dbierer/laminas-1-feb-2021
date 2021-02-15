@@ -1,6 +1,8 @@
 # ZF / Laminas Fundamentals -- Feb 2021
 
 ## Lab Notes
+* For Wed 17 Feb 2021
+  * Lab: Creating and Accessing a Service
 * For Mon 15 Feb 2021
   * Lab: Using a Built-in Controller Plugin
   * Lab: Using a Custom Controller Plugin
@@ -40,6 +42,12 @@ mv composer.phar onlinemarket.work
 * Find example of custom autoloader using `spl_autoload_register`
 
 ## Class Notes
+* If you see an error that indicates page not found:
+  * Check the routing configuration in `/module/MODULE/config/module.config.php`
+  * Check to see if module is on `/config/modules.config.php`
+  * Check to see if the module is listed in `composer.json` under `autoload`.`psr-4`
+  * Also: if it produces output: make sure the `view_manager` key is set in `/module/MODULE/config/module.config.php`
+  * Check to see if a view template has been created
 * Documentation + overview
   * https://getlaminas.org
 * Using tools to generate components
@@ -47,6 +55,10 @@ mv composer.phar onlinemarket.work
 ```
 php composer.phar require phpcl/laminas-tools
 vendor/bin/phpcl-laminas-tools module|controller `pwd` MODULE_NAME|CLASS
+```
+* To create a controller (using the PHPCL Laminas Tools)
+```
+/bin/phpcl-laminas-tools controller `pwd` Market\\Controller\\ViewController
 ```
   * To generate a factory:
 ```
@@ -61,6 +73,16 @@ vendor/bin/phpcl-laminas-tools factory `pwd` Namespace\\Class\\Name
   * And then: fill in the logic for the `__invoke()` method in the `TimePlugin` class
   * Review `Market/config/module.config.php` and make sure there's an entry under `controller_plugins`
   * When you use the plugin, reference it using the `alias` name
+* To enable development mode:
+   * Creates a symlink for `/config/development.config.php.dist` to `/config/development.config.php`
+```
+php composer.phar development-enable
+```
+* To disable development mode:
+```
+php composer.phar development-disable
+```
+
 
 ## VM Notes
 
