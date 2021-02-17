@@ -16,4 +16,30 @@ class Module
     {
         return include __DIR__ . '/../config/module.config.php';
     }
+    public function getServiceConfig() : array
+    {
+		return [
+			'services' => [
+    			'application-categories' => [
+					__FILE__,
+					'barter',
+					'beauty',
+					'clothing',
+					'computer',
+					'entertainment',
+					'free',
+					'garden',
+					'general',
+					'health',
+					'household',
+					'phones',
+					'property',
+					'sporting',
+					'tools',
+					'transportation',
+					'wanted'
+				]
+			]
+		];
+	}
 }

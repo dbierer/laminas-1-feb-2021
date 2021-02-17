@@ -19,6 +19,29 @@ return [
 				'may_terminate' => TRUE,
                 // IMPORTANT: 'child_routes' are *after* 'options', at the same level, inside the 'market' array key
 				'child_routes' => [
+					'json' => [
+						'type'    => Segment::class,
+						'options' => [
+							// add additional params to "route" key if needed
+							'route'    => '/json[/:name]',
+							'defaults' => [
+								'controller' => Controller\IndexController::class,
+								'action'     => 'json',
+								'name'		 => 'Unknown',
+							],
+						],
+					],
+					'panic' => [
+						'type'    => Segment::class,
+						'options' => [
+							// add additional params to "route" key if needed
+							'route'    => '/panic[/]',
+							'defaults' => [
+								'controller' => Controller\IndexController::class,
+								'action'     => 'panic',
+							],
+						],
+					],
 					'post' => [
 						'type'    => Segment::class,
 						'options' => [
@@ -57,6 +80,9 @@ return [
     ],
     'view_manager' => [
         'template_path_stack' => [__DIR__ . '/../view'],
+		'strategies' => [	
+            'ViewJsonStrategy',
+        ],
     ],
     'controller_plugins' => [
         'aliases' => [

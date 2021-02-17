@@ -1,6 +1,9 @@
 # ZF / Laminas Fundamentals -- Feb 2021
 
 ## Lab Notes
+* For Fri 19 Feb 2021
+  * Lab: Manipulating Views and Layouts
+  * Lab: Create a Custom View Helper
 * For Wed 17 Feb 2021
   * Lab: Creating and Accessing a Service
 * For Mon 15 Feb 2021
