@@ -1,6 +1,8 @@
 # ZF / Laminas Fundamentals -- Feb 2021
 
 ## Lab Notes
+* For Mon 22 Feb 2021
+  * Lab: Forms, Filters, Validators
 * For Fri 19 Feb 2021
   * Lab: Manipulating Views and Layouts
   * Lab: Create a Custom View Helper

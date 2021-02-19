@@ -93,4 +93,13 @@ return [
         ],
 
     ],
+    'view_helpers' => [
+        'aliases' => [
+            'leftLinks' => View\Helper\LeftLinksHelper::class,
+        ],
+        'factories' => [
+            View\Helper\LeftLinksHelper::class => InvokableFactory::class,
+        ],
+
+    ],
 ];
