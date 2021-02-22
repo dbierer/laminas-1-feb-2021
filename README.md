@@ -1,6 +1,9 @@
 # ZF / Laminas Fundamentals -- Feb 2021
 
 ## Lab Notes
+* For Wed 24 Feb 2021
+  * Lab: Events
+  * Lab: Shared Event Manager
 * For Mon 22 Feb 2021
   * Lab: Forms, Filters, Validators
 * For Fri 19 Feb 2021
@@ -87,7 +90,8 @@ php composer.phar development-enable
 ```
 php composer.phar development-disable
 ```
-
+* Example of the onlinemarket form using configuration:
+  * https://github.com/dbierer/zff_may_2020/blob/master/onlinemarket.work/module/Market/config/module.config.php
 
 ## VM Notes
 
@@ -128,3 +132,15 @@ sudo gedit /var/www/html/index.html
 $registrations = $this->regTable->findAllForEvent($eventId);
 ```
   * Change `regTable` to `registrationTable`
+
+## Errata
+* Slide: http://localhost:9999/#/8/13 ("Attaching Listeners")
+  * Method signature s/be:
+```
+/**
+ * @param string|array|Aggregate $eventName
+ * @param callable $callback : e.g. listener
+ * @param int $priority : default 1
+*/
+public function attach(mixed $eventName, callable $listener, $priority = 1)
+```
