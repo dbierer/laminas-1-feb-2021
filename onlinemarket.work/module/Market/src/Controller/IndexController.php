@@ -1,24 +1,31 @@
 <?php
 declare(strict_types=1);
 namespace Market\Controller;
+use Laminas\Db\Adapter\Adapter;
 use Laminas\Mvc\MvcEvent;
 use Laminas\Mvc\Controller\AbstractActionController;
 use Laminas\View\Model\{ViewModel,JsonModel};
 class IndexController extends AbstractActionController
 {
 	protected $categories;
-	public function __construct(array $categories)
+	protected $adapter;
+	public function __construct(array $categories, Adapter $adapter)
 	{
 		$this->categories = $categories;
+		$this->adapter = $adapter;
 	}
     public function indexAction()
     {
 		$this->doEventStuff();
+		// database lookup using the adapter
+		$sql = 'SELECT * FROM listings';
+		$result = $this->adapter->query($sql, []);
 		// build the view
 		$name = $this->params()->fromQuery('name', 'Unknown');
         $viewModel = new ViewModel(['name' => $name, 
 							  'datetime' => $this->timePlugin(), 
-							  'categories' => $this->categories,
+							  'listing' => $result,
+							  'categories' => [],
 							  'request' => $this->getRequest()]);
 		//$viewModel->setTerminal(TRUE);
 		return $viewModel;

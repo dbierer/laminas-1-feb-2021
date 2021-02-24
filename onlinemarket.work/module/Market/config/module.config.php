@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 namespace Market;
+use Laminas\Hydrator\ArraySerializableHydrator;
 use Laminas\Router\Http\{Literal,Segment};
 use Laminas\ServiceManager\Factory\InvokableFactory;
 return [

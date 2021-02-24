@@ -15,12 +15,18 @@
         "laminas/laminas-development-mode": "^3.2",
         "laminas/laminas-skeleton-installer": "^0.2 || ^1.0",
         "laminas/laminas-mvc": "^3.1.1",
-        "phpcl/laminas-tools": "^1.0"
+        "phpcl/laminas-tools": "^1.0",
+        "laminas/laminas-captcha": "^2.9",
+        "laminas/laminas-form": "^2.15",
+        "laminas/laminas-session": "^2.10",
+        "laminas/laminas-i18n": "^2.11",
+        "laminas/laminas-db": "^2.12"
     },
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "Market\\": "module/Market/src/"
+            "Market\\": "module/Market/src/",
+            "Model\\": "module/Model/src/"
         }
     },
     "autoload-dev": {

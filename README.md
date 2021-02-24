@@ -1,6 +1,17 @@
 # ZF / Laminas Fundamentals -- Feb 2021
 
 ## Lab Notes
+* For Fri 26 Feb 2021
+  * Lab: Database Persistence
+    * When you get to the step "Controller Factory Modification", do this in the controller factories in the `__invoke()` method:
+    * This applies to steps 16 - 18
+    * Change to the suitable controller instance (e.g. `IndexController`, `ViewController` or `PostController`)
+```
+$controller = new IndexController();
+$controller->setListingsTable($container->get(ListingsTable::class));
+return $controller;
+```
+
 * For Wed 24 Feb 2021
   * Lab: Events
   * Lab: Shared Event Manager
@@ -144,3 +155,7 @@ $registrations = $this->regTable->findAllForEvent($eventId);
 */
 public function attach(mixed $eventName, callable $listener, $priority = 1)
 ```
+* Slide: http://localhost:9999/#/9/48 ("Bare Bones Model Module")
+  * s/be "Update the onlinemarket.work/config/<b>modules</b>.config.php file"
+* Slide: http://localhost:9999/#/9/58  ("Controller Factory Modification")
+  * Won't work as stated.  Do this instead (see Lab Notes Above)

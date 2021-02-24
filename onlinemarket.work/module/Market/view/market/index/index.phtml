@@ -5,7 +5,10 @@ Welcome <?= $this->escapeHtml($this->name) ?>!
 <br />
 The current time is: <?= $this->datetime ?>
 <br />
-<?= $this->partial('market/partials/categories', ['categories' => $this->categories]) ?>
+<?php foreach($this->listing as $item) : ?>
+<?php     var_dump($item);               ?>
+<?php endforeach;                        ?>
+<?php /* $this->partial('market/partials/categories', ['categories' => $this->categories]) */ ?>
 <?php /*
 <ul>
 <li>

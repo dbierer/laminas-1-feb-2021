@@ -7,7 +7,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?= $this->headTitle('Laminas MVC Skeleton')->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?= $this->headTitle('Laminas Online Market')->setSeparator(' - ')->setAutoEscape(false) ?>
 
         <?= $this->headMeta()
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
@@ -31,7 +31,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <a class="navbar-brand" href="<?= $this->url('home') ?>">
-                        <img src="<?= $this->basePath('img/laminas-logo.svg') ?>" alt="Laminas">MVC Skeleton
+                        <img src="<?= $this->basePath('img/laminas-logo.svg') ?>" alt="Laminas">Online Market
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -39,12 +39,23 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="<?= $this->url('home') ?>">Home <span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?= $this->url('market') ?>">Market </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?= $this->url('market/post') ?>">Post </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container">
+			<div style="width:20%;float:left;">
+			<?= $this->leftLinks($this->categories, '/market/view/category') ?>
+			</div>
+			<div style="width:80%;float:left;">
             <?= $this->content ?>
+            </div>
             <hr>
             <footer>
                 <p>&copy; <?= date('Y') ?> <a href="https://getlaminas.org/">Laminas Project</a> a Series of LF Projects, LLC.</p>
