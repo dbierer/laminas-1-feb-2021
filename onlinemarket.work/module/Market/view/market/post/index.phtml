@@ -12,15 +12,15 @@
 Raw error messages coming directly from the validators, not the <em>Input</em> classes.
 <ul>
 <?php foreach ($this->postForm->getInputFilter()->getInvalidInput() as $input) : ?>
-    <li>
-        <?= $input->getName() . ':' ?>
-        <?php foreach ($input->getValidatorChain()->getValidators() as $chain) : ?>
-        <?php foreach ($chain as $validator) : ?>
-            <?php if ($validator && is_object($validator)) : ?>
-            <?php $error = $validator->getMessages(); ?>
-                <?= get_class($validator) . ':' . implode(',', $error); ?>
-            <?php endif; ?>
-        <?php endforeach; ?>
-        <?php endforeach; ?>
-    </li>
+	<li>
+		<?= $input->getName() . ':' ?>
+		<?php foreach ($input->getValidatorChain()->getValidators() as $chain) : ?>
+		<?php foreach ($chain as $validator) : ?>
+			<?php if ($validator && is_object($validator)) : ?>
+			<?php $error = $validator->getMessages(); ?>
+				<?= get_class($validator) . ':' . implode(',', $error); ?>
+			<?php endif; ?>
+		<?php endforeach; ?>
+		<?php endforeach; ?>
+	</li>
 <?php endforeach; ?>

@@ -7,6 +7,14 @@ class ViewController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+        $category = '';
+        $listing = [];
+        return new ViewModel(['category' => $category, 'listing' => $listing]);
+    }
+    public function itemAction()
+    {
+        $itemId = '';
+        $item = NULL;
+        return new ViewModel(['item' => $item]);
     }
 }

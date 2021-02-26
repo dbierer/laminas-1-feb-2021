@@ -17,55 +17,71 @@ return [
                     ],
                 ],
                 // this is a "switch" that allows both parent and child routes to be considered
-				'may_terminate' => TRUE,
+                'may_terminate' => TRUE,
                 // IMPORTANT: 'child_routes' are *after* 'options', at the same level, inside the 'market' array key
-				'child_routes' => [
-					'json' => [
-						'type'    => Segment::class,
-						'options' => [
-							// add additional params to "route" key if needed
-							'route'    => '/json[/:name]',
-							'defaults' => [
-								'controller' => Controller\IndexController::class,
-								'action'     => 'json',
-								'name'		 => 'Unknown',
-							],
-						],
-					],
-					'panic' => [
-						'type'    => Segment::class,
-						'options' => [
-							// add additional params to "route" key if needed
-							'route'    => '/panic[/]',
-							'defaults' => [
-								'controller' => Controller\IndexController::class,
-								'action'     => 'panic',
-							],
-						],
-					],
-					'post' => [
-						'type'    => Segment::class,
-						'options' => [
-							// add additional params to "route" key if needed
-							'route'    => '/post[/]',
-							'defaults' => [
-								'controller' => Controller\PostController::class,
-								'action'     => 'index',
-							],
-						],
-					],
-					'view' => [
-						'type'    => Segment::class,
-						'options' => [
-							// add additional params to "route" key if needed
-							'route'    => '/view[/]',
-							'defaults' => [
-								'controller' => Controller\ViewController::class,
-								'action'     => 'index',
-							],
-						],
-					],
-				],
+                'child_routes' => [
+                    'demo' => [
+                        'type'    => Segment::class,
+                        'options' => [
+                            // add additional params to "route" key if needed
+                            'route'    => '/demo',
+                            'defaults' => [
+                                'controller' => Controller\IndexController::class,
+                                'action'     => 'demo',
+                            ],
+                        ],
+                    ],
+                    'json' => [
+                        'type'    => Segment::class,
+                        'options' => [
+                            // add additional params to "route" key if needed
+                            'route'    => '/json[/:name]',
+                            'defaults' => [
+                                'controller' => Controller\IndexController::class,
+                                'action'     => 'json',
+                                'name'       => 'Unknown',
+                            ],
+                        ],
+                    ],
+                    'panic' => [
+                        'type'    => Segment::class,
+                        'options' => [
+                            // add additional params to "route" key if needed
+                            'route'    => '/panic[/]',
+                            'defaults' => [
+                                'controller' => Controller\IndexController::class,
+                                'action'     => 'panic',
+                            ],
+                        ],
+                    ],
+                    'post' => [
+                        'type'    => Segment::class,
+                        'options' => [
+                            // add additional params to "route" key if needed
+                            'route'    => '/post[/]',
+                            'defaults' => [
+                                'controller' => Controller\PostController::class,
+                                'action'     => 'index',
+                            ],
+                        ],
+                    ],
+                    'view' => [
+                        'type'    => Literal::class,
+                        'options' => [
+                            // add additional params to "route" key if needed
+                            'route'    => '/view',
+                            'defaults' => [
+                                'controller' => Controller\ViewController::class,
+                                'action'     => 'index',
+                                'category'   => 'free',
+                            ],
+                        ],
+                        'may_terminate' => TRUE,
+                        // IMPORTANT: 'child_routes' are *after* 'options', at the same level, inside the 'market' array key
+                        'child_routes' => [
+                        ],
+                    ],
+                ],
             ],
         ],
     ],
@@ -81,7 +97,7 @@ return [
     ],
     'view_manager' => [
         'template_path_stack' => [__DIR__ . '/../view'],
-		'strategies' => [	
+        'strategies' => [
             'ViewJsonStrategy',
         ],
     ],
@@ -152,7 +168,7 @@ return [
                             'attributes' => ['placeholder' => 'Enter posting title'],
                             'options' => [
                                 'label' => 'Title',
-								'label_attributes' => ['style' => 'display: block'],
+                                'label_attributes' => ['style' => 'display: block'],
                             ],
                         ],
                     ],
