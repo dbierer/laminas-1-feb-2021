@@ -7,6 +7,7 @@ use Laminas\View\Model\ViewModel;
 use Laminas\Form\Form;
 class PostController extends AbstractActionController
 {
+    use ListingsTableTrait;
     protected $form = '';
     public function __construct(Form $form)
     {
@@ -21,7 +22,7 @@ class PostController extends AbstractActionController
             $this->form->setData($this->params()->fromPost());
             if ($this->form->isValid()) {
                 $message = 'SUCCESS: form data is valid';
-                $data = $form->getData();
+                $data = $this->form->getData();
                 $em->trigger(ListingsTable::EVENT_PRE, $this, ['data' => $data]);
                 if ($this->table->save($data)) {
                     $message .= '<br />SUCCESS: item posted to the online market';

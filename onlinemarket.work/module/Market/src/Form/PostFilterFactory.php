@@ -23,7 +23,7 @@ class PostFilterFactory implements FactoryInterface
         ];
         $filtConfig['expires']['validators'][] = [
             'name' => 'InArray',
-            'options' => ['haystack' => $container->get('market-expire-days')]
+            'options' => ['haystack' => array_keys($container->get('market-expire-days'))]
         ];
         $filtConfig['cityCode']['validators'][] = [
             'name' => 'Callback',

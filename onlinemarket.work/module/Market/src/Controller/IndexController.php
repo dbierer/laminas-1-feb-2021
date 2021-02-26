@@ -10,10 +10,12 @@ class IndexController extends AbstractActionController
     use ListingsTableTrait;
     protected $categories;
     protected $adapter;
-    public function __construct(array $categories, Adapter $adapter)
+    protected $test;
+    public function __construct(array $categories, Adapter $adapter, array $test)
     {
         $this->categories = $categories;
         $this->adapter = $adapter;
+        $this->test = $test;
     }
     public function indexAction()
     {
@@ -31,7 +33,7 @@ class IndexController extends AbstractActionController
         $viewModel = new ViewModel(['name' => $name,
                               'datetime' => $this->timePlugin(),
                               'listing' => $result,
-                              'categories' => [],
+                              'test' => $this->test,
                               'request' => $this->getRequest()]);
         //$viewModel->setTerminal(TRUE);
         return $viewModel;

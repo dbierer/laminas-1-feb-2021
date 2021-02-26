@@ -35,12 +35,13 @@ class ListingsTable extends TableGateway
         unset($data['submit']);
         unset($data['cityCode']);
         unset($data['captcha']);
+        unset($data['csrf']);
         return $this->insert($data);
     }
     protected function getDateExpires($expires)
     {
         if ($expires === 0) {
-            $expires = 9999;
+            $expires = 99999;
         }
         $now = new DateTime();
         $now = ($expires) ? $now->add(new DateInterval('P' . $expires . 'D')) : $now;

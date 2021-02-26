@@ -9,12 +9,13 @@ class LeftLinksHelper extends AbstractHtmlElement
     /**
      * Produces mixed output depending on logic you place inside __invoke()
      *
-     * @param array $values : online market categories
+     * @param ?array $values : online market categories
      * @param string $urlPrefix
      * @return string $html
      */
-    public function __invoke(array $values, string $urlPrefix)
+    public function __invoke(?array $values, string $urlPrefix)
     {
+		if (empty($values)) return 'No Categories Found';
         $html = '';
         if (isset($values) && is_array($values)) {
             $html .= '<ul  style="list-style-type: none;">' . PHP_EOL;

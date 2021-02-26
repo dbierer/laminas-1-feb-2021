@@ -15,6 +15,7 @@
 return [
     'service_manager' => [
 		'services' => [
+            'test' => [ __FILE__],
 			'global-categories' => [
                 'barter',
                 'beauty',

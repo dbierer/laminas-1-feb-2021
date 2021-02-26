@@ -79,6 +79,32 @@ return [
                         'may_terminate' => TRUE,
                         // IMPORTANT: 'child_routes' are *after* 'options', at the same level, inside the 'market' array key
                         'child_routes' => [
+							'category' => [
+								'type'    => Segment::class,
+								'options' => [
+									// add additional params to "route" key if needed
+									'route'    => '/category[/:category]',
+									'defaults' => [
+										'controller' => Controller\ViewController::class,
+										'action'     => 'index',
+										'category'   => 'free',
+									],
+								],
+							],
+							'item' => [
+								'type'    => Segment::class,
+								'options' => [
+									// add additional params to "route" key if needed
+									'route'    => '/item[/:itemId]',
+									'defaults' => [
+										'controller' => Controller\ViewController::class,
+										'action'     => 'item',
+									],
+									'constraints' => [
+										'itemId' => '[0-9]+',
+									],
+								],
+							],
                         ],
                     ],
                 ],
@@ -119,7 +145,7 @@ return [
         ],
 
     ],
-'service_manager' => [
+	'service_manager' => [
         'factories' => [
             Form\PostFilter::class => Form\PostFilterFactory::class,
             Form\PostForm::class => Form\PostFormFactory::class,
@@ -144,6 +170,7 @@ return [
             // $formConfig['elements']['category']['spec']['options']['value_options'] = $combinedCategories
             // $formConfig['elements']['expires']['spec']['options']['value_options'] = $expireDays
             // $formConfig['elements']['captcha']['spec']['options']['captcha'] = $captchaAdapter
+            'test' => [ __FILE__],
             'market-post-form-config' => [
                 'hydrator' => ArraySerializableHydrator::class,
                 'attributes' => ['method' => 'post'],
@@ -154,8 +181,8 @@ return [
                             'type' => 'select',
                             'options' => [
                                 'label' => 'Category',
-                                // needs to be overridden by the factory
-                                'value_options' => NULL,
+                                // overridden by the factory
+                                'value_options' => [],
                             ],
                             'attributes' => ['title' => 'Please select a category'],
                             'label_attributes' => ['style' => 'display: block'],
@@ -412,7 +439,7 @@ return [
             'name' => 'expires',
             'required' => TRUE,
             'filters' => [
-                [ 'name' => 'Digits' ],
+                [ 'name' => 'ToInt' ],
             ],
         ],
         'cityCode' => [

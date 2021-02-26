@@ -5,6 +5,8 @@ Welcome <?= $this->escapeHtml($this->name) ?>!
 <br />
 The current time is: <?= $this->datetime ?>
 <br />
+<?php var_dump($this->test); ?>
+<br />
 <?php foreach($this->listing as $item) : ?>
 <?php     var_dump($item);               ?>
 <?php endforeach;                        ?>

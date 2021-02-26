@@ -8,6 +8,7 @@ return [
 	'service_manager' => [
 		'factories' => [
 			Adapter::class => Adapter\AdapterFactory::class,
+			Table\ListingsTable::class => Table\ListingsTableFactory::class
 		],
 	],
 ];
